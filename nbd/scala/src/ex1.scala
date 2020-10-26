@@ -13,6 +13,13 @@ object ex1 {
     point4b(weekDays)
     point4c(weekDays)
     point5()
+    point6(22, 10.20, "Prawa Kobiet")
+    point7()
+    val integers = List(99, 10, 2, 0, 2, 5, 0, 32, 35, 0, 37, 63, 21, 0, 0, 0)
+    point8(integers)
+    point9(integers)
+    val reals = List(-7,5,-3,1,-1,3,6,9,12,15)
+    point10(reals)
   }
 
   def point1a(myList: List[Any]): Unit = {
@@ -132,8 +139,53 @@ object ex1 {
   }
 
   def point5(): Unit = {
-    val products : Map[String,Double]  = Map("Bike" -> 100.00, "TV" -> 200.00, "Speaker" -> 50.00, "Phone" -> 150.00)
+    val products: Map[String, Double] = Map("Bike" -> 100.00, "TV" -> 200.00, "Speaker" -> 50.00, "Phone" -> 150.00)
     val discountedProducts = products.map(v => (v._1, v._2 * 0.9))
+    println("5")
     discountedProducts.foreach(v => println("Name " + v._1 + " Price " + v._2))
+  }
+
+  def point6(myTuple: (Int, Double, String)): Unit = {
+    println("6")
+    print(myTuple._1)
+    print(',')
+    println(String.format("%.2f", myTuple._2))
+    println(myTuple._3)
+  }
+
+  def point7(): Unit = {
+    val products: Map[String, Double] = Map("Bike" -> 10.00, "Phone" -> 15.00)
+    val phone = products.get("Phone")
+    val table = products.get("Table")
+    println("7")
+    println(phone)
+    println(table)
+  }
+
+  def point8(myList: List[Int]): Unit = {
+    if (myList.contains(0)) {
+      val newList = myList filter (_.!=(0))
+      point8(newList)
+    }
+    else {
+      println("8")
+      println(myList.foreach(v => println(v)))
+    }
+  }
+
+  def point9(myList: List[Int]): Unit = {
+    if (myList.nonEmpty) {
+      val newList = myList.map(n => n + 1)
+      println("9")
+      println(newList.foreach(v => println(v)))
+    }
+  }
+
+  def point10(myList: List[Int]): Unit = {
+    if (myList.nonEmpty) {
+      val newList = myList.filter(n => n >= -5 && n <= 12).map(_.abs)
+      println("10")
+      println(newList.foreach(v => println(v)))
+    }
   }
 }
