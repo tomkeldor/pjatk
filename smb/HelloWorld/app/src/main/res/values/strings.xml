@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">HelloWorld</string>
     <string name="witaj">Hello World!</string>
+    <string name="button">Kliknij mnie</string>
+    <string name="wpisz_cos">Wpisz cos</string>
+    <string name="drugi_ekran">Drugi ekran</string>
 </resources>
