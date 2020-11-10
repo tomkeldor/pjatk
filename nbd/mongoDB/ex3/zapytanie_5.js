@@ -1,0 +1,1 @@
+printjson(db.people.aggregate({$match:{birth_date:{$gte:"2001-01-01"}}},{$project:{imie:"$first_name",nazwisko:"$last_name",miasto:"$location.city"}}).toArray())
