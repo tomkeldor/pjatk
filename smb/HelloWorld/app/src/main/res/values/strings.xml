@@ -1,7 +1,14 @@
 <resources>
-    <string name="app_name">HelloWorld</string>
-    <string name="witaj">Hello World!</string>
-    <string name="button">Kliknij mnie</string>
-    <string name="wpisz_cos">Wpisz cos</string>
-    <string name="drugi_ekran">Drugi ekran</string>
+    <string name="app_name">Lista zakupów</string>
+    <string name="lista_produktow">Otwórz listę</string>
+    <string name="edytuj">Zapisz</string>
+    <string name="usun">Usuń</string>
+    <string name="kupiony">Kupiony?</string>
+    <string name="liczba">Liczba</string>
+    <string name="nazwa">Nazwa</string>
+    <string name="cena">Cena</string>
+    <string name="wyczysc">Wyczyść listę</string>
+    <string name="dodaj">Dodaj</string>
+    <string name="nowy_produkt">Nowy produkt:</string>
+    <string name="akcje">Akcje</string>
 </resources>

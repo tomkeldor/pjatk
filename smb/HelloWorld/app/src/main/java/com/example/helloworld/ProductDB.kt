@@ -5,22 +5,22 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Person::class], version = 1)
-abstract class PersonDB : RoomDatabase() {
+@Database(entities = [Product::class], version = 1)
+abstract class ProductDB : RoomDatabase() {
 
-    abstract fun personDao(): PersonDao
+    abstract fun productDao(): ProductDao
 
     companion object {
-        private var instance: PersonDB? = null
+        private var instance: ProductDB? = null
 
-        fun getDatabase(context: Context): PersonDB {
+        fun getDatabase(context: Context): ProductDB {
             val tmpInstance = instance
             if (tmpInstance != null)
                 return tmpInstance
-            val inst = Room.databaseBuilder(context.applicationContext, PersonDB::class.java, "personDB")
+            val inst = Room.databaseBuilder(context.applicationContext, ProductDB::class.java, "ProductDB")
                     .allowMainThreadQueries().build()
             instance = inst
-            return instance as PersonDB
+            return instance as ProductDB
         }
     }
 }
