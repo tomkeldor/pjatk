@@ -1,17 +1,36 @@
 package com.example.helloworld
 
+import android.content.Context
+import android.graphics.Typeface
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.LinearLayout
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.helloworld.databinding.ListElementBinding
 
-class MyAdapter(val productViewModel: ProductViewModel) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
+class MyAdapter(private val productViewModel: ProductViewModel, private val ctx: Context) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
     private var products = emptyList<Product>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyAdapter.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = ListElementBinding.inflate(inflater)
+
+        val sp = PreferenceManager.getDefaultSharedPreferences(ctx)
+        val bold = if (sp.getBoolean("bold", false)) "bold" else ""
+        val italics = if (sp.getBoolean("italics", false)) "italics" else ""
+
+        when (bold + italics) {
+            "bold" -> overrideFonts(view.rvLl1, Typeface.BOLD)
+            "italics" -> overrideFonts(view.rvLl1, Typeface.ITALIC)
+            "bolditalics" -> overrideFonts(view.rvLl1, Typeface.BOLD_ITALIC)
+            else -> {
+                overrideFonts(view.rvLl1, Typeface.NORMAL)
+            }
+        }
         return ViewHolder(view)
     }
 
@@ -27,7 +46,6 @@ class MyAdapter(val productViewModel: ProductViewModel) : RecyclerView.Adapter<M
             currentProduct.amount = Integer.parseInt(holder.binding.rvTv3.text.toString())
             currentProduct.isBought = holder.binding.rvCb1.isChecked
             productViewModel.update(currentProduct)
-            //notifyDataSetChanged()
         }
         holder.binding.rvBt2.setOnClickListener {
             productViewModel.delete(currentProduct)
@@ -43,13 +61,28 @@ class MyAdapter(val productViewModel: ProductViewModel) : RecyclerView.Adapter<M
         notifyDataSetChanged()
     }
 
-    public fun addProduct(product: Product) {
+    fun addProduct(product: Product) {
         productViewModel.insert(product)
         notifyDataSetChanged()
     }
 
-    public fun clearProducts() {
+    fun clearProducts() {
         productViewModel.clear()
         notifyDataSetChanged()
+    }
+
+    fun overrideFonts(v : View, style: Int) {
+        try {
+            if (v is LinearLayout) {
+                val vg = v
+                for (i in 0 until vg.childCount) {
+                    val child = vg.getChildAt(i)
+                    overrideFonts(child, style)
+                }
+            } else if (v is EditText) {
+                v.setTypeface(null, style)
+            }
+        } catch (e: Exception) {
+        }
     }
 }

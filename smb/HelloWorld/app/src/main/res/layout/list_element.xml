@@ -5,6 +5,12 @@
     android:orientation="horizontal"
     android:importantForAutofill="no">
 
+    <LinearLayout
+        android:id="@+id/rv_Ll1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
     <EditText
         android:id="@+id/rv_Tv1"
         android:layout_width="80dp"
@@ -16,7 +22,6 @@
         android:id="@+id/rv_Tv2"
         android:layout_width="55dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:inputType="numberDecimal"
         android:hint="@string/cena"/>
 
@@ -24,9 +29,10 @@
         android:id="@+id/rv_Tv3"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:hint="@string/liczba"
         android:inputType="numberSigned" />
+
+    </LinearLayout>
 
     <CheckBox
         android:id="@+id/rv_Cb1"

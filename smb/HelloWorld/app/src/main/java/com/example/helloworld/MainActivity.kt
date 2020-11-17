@@ -1,8 +1,6 @@
 package com.example.helloworld
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -15,6 +13,10 @@ class MainActivity : AppCompatActivity() {
         val intent1 = Intent(baseContext, ListActivity::class.java)
         bt1.setOnClickListener {
             startActivity(intent1)
+        }
+        val intent2 = Intent(baseContext, OptionsActivity::class.java)
+        bt2.setOnClickListener {
+            startActivity(intent2)
         }
     }
 }

@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Lista zakupów</string>
+    <string name="hello">Witaj!</string>
     <string name="lista_produktow">Otwórz listę</string>
     <string name="edytuj">Zapisz</string>
     <string name="usun">Usuń</string>
@@ -11,4 +12,10 @@
     <string name="dodaj">Dodaj</string>
     <string name="nowy_produkt">Nowy produkt:</string>
     <string name="akcje">Akcje</string>
+    <string name="cancel">Anuluj</string>
+    <string name="confirm">Wybierz</string>
+    <string name="ustawienia">Ustawienia</string>
+    <string name="styl_tekstu">Styl tekstu</string>
+    <string name="pogrubienie">Wytłuszczenie</string>
+    <string name="kursywa">Kursywa</string>
 </resources>
