@@ -5,8 +5,8 @@ var mapFunction2 = function () {
             count: 1,
             balance: parseFloat(this.credit[idx].balance)
         }
-    }
     emit(key, value);
+    }
 };
 
 var reduceFuntion2 = function (key, objVals) {
