@@ -4,4 +4,5 @@
     <string name="button">Kliknij mnie</string>
     <string name="wpisz_cos">Wpisz cos</string>
     <string name="drugi_ekran">Drugi ekran</string>
+    <string name="broadcast_filter">com.example.helloworld.MY_BROADCAST</string>
 </resources>

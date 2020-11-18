@@ -13,8 +13,8 @@ interface PersonDao {
     fun getPeople(): LiveData<List<Person>>
 
     @Insert
-    fun insert(person: Person)
+    suspend fun insert(person: Person)
 
     @Delete
-    fun delete(person: Person)
+    suspend fun delete(person: Person)
 }
