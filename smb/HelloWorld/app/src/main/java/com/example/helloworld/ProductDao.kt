@@ -11,20 +11,20 @@ interface ProductDao {
     fun getProducts(): LiveData<List<Product>>
 
     @Query("SELECT * FROM product_table")
-    fun findAll(): Cursor
+    suspend fun findAll(): Cursor
 
     @Insert
-    fun insert(product: Product) : Long
+    suspend fun insert(product: Product) : Long
 
     @Update
-    fun update(product: Product) : Int
+    suspend fun update(product: Product) : Int
 
     @Delete
-    fun delete(product: Product)
+    suspend fun delete(product: Product)
 
     @Query("DELETE FROM product_table WHERE id = :productId")
-    fun delete(productId: Long) : Int
+    suspend fun delete(productId: Long) : Int
 
     @Query("DELETE FROM product_table")
-    fun clear()
+    suspend fun clear()
 }

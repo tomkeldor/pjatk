@@ -18,7 +18,7 @@ abstract class ProductDB : RoomDatabase() {
             if (tmpInstance != null)
                 return tmpInstance
             val inst = Room.databaseBuilder(context.applicationContext, ProductDB::class.java, "ProductDB")
-                    .allowMainThreadQueries().build()
+                    .build()
             instance = inst
             return instance as ProductDB
         }

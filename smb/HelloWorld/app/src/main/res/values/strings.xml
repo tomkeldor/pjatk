@@ -18,4 +18,6 @@
     <string name="styl_tekstu">Styl tekstu</string>
     <string name="pogrubienie">Wytłuszczenie</string>
     <string name="kursywa">Kursywa</string>
+    <string name="broadcast_filter">com.example.helloworld.MY_BROADCAST</string>
+    <string name="channel_id">productAddChannel</string>
 </resources>

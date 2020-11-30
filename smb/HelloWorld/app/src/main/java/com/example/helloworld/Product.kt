@@ -3,7 +3,9 @@ package com.example.helloworld
 import android.content.ContentValues
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.serialization.*
 
+@Serializable
 @Entity(tableName = "product_table")
 data class Product(var name: String, var price: Double, var amount: Int, var isBought: Boolean) {
     @PrimaryKey(autoGenerate = true)
