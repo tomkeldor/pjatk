@@ -11,7 +11,7 @@ var mapFunction2 = function () {
 };
 
 var reduceFuntion2 = function (key, avgObjVals) {
-    var reducedVal = 0
+    var reducedVal = 0;
     for (var idx = 0; idx < avgObjVals.length; idx++) {
         reducedVal.count += avgObjVals[idx].count;
         reducedVal.sumBMI += avgObjVals[idx].bmi;
