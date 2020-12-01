@@ -18,7 +18,7 @@ abstract class PersonDB : RoomDatabase() {
             if (tmpInstance != null)
                 return tmpInstance
             val inst = Room.databaseBuilder(context.applicationContext, PersonDB::class.java, "personDB")
-                    .allowMainThreadQueries().build()
+                    .build()
             instance = inst
             return instance as PersonDB
         }

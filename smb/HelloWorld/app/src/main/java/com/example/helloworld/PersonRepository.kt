@@ -6,11 +6,11 @@ class PersonRepository(private val personDao: PersonDao) {
 
     val allPeople: LiveData<List<Person>> = personDao.getPeople()
 
-    fun insert(person: Person){
+    suspend fun insert(person: Person){
         personDao.insert(person)
     }
 
-    fun delete(person: Person){
+    suspend fun delete(person: Person){
         personDao.delete(person)
     }
 }
