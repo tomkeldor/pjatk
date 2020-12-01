@@ -45,7 +45,8 @@ class MyProvider : ContentProvider() {
         when (uriMatcher.match(uri)) {
             1 -> {
                 if (context != null) {
-                    val id: Long = productDao.insert(Product.fromContentValues(values))
+
+                    val id: Long = productDao.insertP(Product.fromContentValues(values))
                     if (id != 0L) {
                         context!!.contentResolver
                                 .notifyChange(uri, null)
@@ -65,7 +66,7 @@ class MyProvider : ContentProvider() {
             1 -> throw java.lang.IllegalArgumentException("Invalid uri: cannot delete")
             2 -> {
                 if (context != null) {
-                    val count: Int = productDao.delete(ContentUris.parseId(uri))
+                    val count: Int = productDao.deleteP(ContentUris.parseId(uri))
                     context!!.contentResolver
                             .notifyChange(uri, null)
                     return count
@@ -81,7 +82,7 @@ class MyProvider : ContentProvider() {
         when (uriMatcher.match(uri)) {
             1 -> {
                 if (context != null) {
-                    val count: Int = productDao.update(Product.fromContentValues(values))
+                    val count: Int = productDao.updateP(Product.fromContentValues(values))
                     if (count != 0) {
                         context!!.contentResolver
                                 .notifyChange(uri, null)

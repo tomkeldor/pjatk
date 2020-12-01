@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.helloworld">
+    <permission-group android:name="com.example.helloworld.my_permissions"
+        android:label="my permissions group"/>
+    <permission android:name="com.example.helloworld.MY_PERMISSION"
+        android:permissionGroup="com.example.helloworld.my_permissions"
+        android:label="my permission"/>
+
+    <uses-permission android:name="com.example.helloworld.my_permissions.MY_PERMISSION"/>
 
     <application
         android:allowBackup="true"

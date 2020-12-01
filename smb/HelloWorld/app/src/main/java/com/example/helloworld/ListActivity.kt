@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationManagerCompat
 import androidx.lifecycle.Observer
@@ -14,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.helloworld.databinding.ActivityListBinding
+import kotlinx.android.synthetic.main.settings_activity.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
@@ -50,7 +52,7 @@ class ListActivity : AppCompatActivity() {
         productViewModel.insert(Product("Herbata", 5.49, 2, false))
         productViewModel.insert(Product("Kawa", 10.99, 1, true))
         binding.rv1.adapter = MyAdapter(productViewModel, baseContext)
-        val broadcast = Intent(getString(R.string.broadcast_filter))
+        val broadcast = Intent(this, ListActivity::class.java)
         broadcast.component = ComponentName(
             "com.example.myapp",
             "com.example.myapp.ProductReceiver"
@@ -79,8 +81,10 @@ class ListActivity : AppCompatActivity() {
             )
             (binding.rv1.adapter as MyAdapter).addProduct(product)
             val string = Json.encodeToString(product)
+            Log.i("data", string)
             broadcast.putExtra("product", string)
             sendBroadcast(broadcast)
+            Log.i("br", broadcast.toString())
         }
         binding.bt2.setOnClickListener {
             (binding.rv1.adapter as MyAdapter).clearProducts()
