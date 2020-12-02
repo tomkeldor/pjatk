@@ -9,23 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <receiver
-            android:name=".PersonReceiver"
-            android:enabled="true"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="@string/broadcast_filter"/>
-            </intent-filter>
-        </receiver>
+        <activity android:name=".LoginActivity">
 
-        <activity android:name=".ListActivity" />
-        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".PersonReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="@string/broadcast_filter" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".ListActivity" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
