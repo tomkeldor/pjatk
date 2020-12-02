@@ -20,12 +20,8 @@
         <receiver
             android:name=".ProductReceiver"
             android:permission="com.example.helloworld.my_permissions.MY_PERMISSION"
-            android:process=":remote"
             android:enabled="true"
             android:exported="true">
-            <intent-filter>
-                <action android:name="com.example.helloworld.ListActivity" />
-            </intent-filter>
         </receiver>
     </application>
 

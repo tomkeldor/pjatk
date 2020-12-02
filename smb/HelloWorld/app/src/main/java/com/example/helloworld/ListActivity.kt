@@ -1,15 +1,11 @@
 package com.example.helloworld
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
 import android.content.ComponentName
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.annotation.RequiresApi
-import androidx.core.app.NotificationManagerCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -52,13 +48,12 @@ class ListActivity : AppCompatActivity() {
         productViewModel.insert(Product("Herbata", 5.49, 2, false))
         productViewModel.insert(Product("Kawa", 10.99, 1, true))
         binding.rv1.adapter = MyAdapter(productViewModel, baseContext)
-        val broadcast = Intent(this, ListActivity::class.java)
+        val broadcast = Intent()
         broadcast.component = ComponentName(
             "com.example.myapp",
             "com.example.myapp.ProductReceiver"
         )
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            createChannel()
             broadcast.putExtra("channel", getString(R.string.channel_id))
         }
         broadcast.putExtra("id", id++)
@@ -89,17 +84,5 @@ class ListActivity : AppCompatActivity() {
         binding.bt2.setOnClickListener {
             (binding.rv1.adapter as MyAdapter).clearProducts()
         }
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun createChannel() {
-        val notificationChannel = NotificationChannel(
-            getString(R.string.channel_id),
-            "Product channel",
-            NotificationManager.IMPORTANCE_DEFAULT
-        )
-
-        NotificationManagerCompat.from(this)
-            .createNotificationChannel(notificationChannel)
     }
 }
