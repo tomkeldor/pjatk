@@ -2,13 +2,16 @@ var mapFunction2 = function () {
     var key = this.nationality;
     var value = {
         count: 1,
-        bmi: parseFloat(this.weight) / Math.pow(parseFloat(this.height)/100, 2)
+        bmi: parseFloat(this.weight) / Math.pow(parseFloat(this.height)/100, 2),
+        sumBMI: parseFloat(this.weight) / Math.pow(parseFloat(this.height)/100, 2),
+        maxBMI: parseFloat(this.weight) / Math.pow(parseFloat(this.height)/100, 2),
+        minBMI: parseFloat(this.weight) / Math.pow(parseFloat(this.height)/100, 2)
     };
     emit(key, value);
 };
 
 var reduceFuntion2 = function (key, avgObjVals) {
-    reducedVal = { count: 0, sumBMI: 0, maxBMI: 0, minBMI: 100 };
+    var reducedVal = 0;
     for (var idx = 0; idx < avgObjVals.length; idx++) {
         reducedVal.count += avgObjVals[idx].count;
         reducedVal.sumBMI += avgObjVals[idx].bmi;

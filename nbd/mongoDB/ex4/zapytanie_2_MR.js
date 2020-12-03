@@ -2,8 +2,8 @@ var mapFunction2 = function () {
     for (var idx = 0; idx < this.credit.length; idx++) {
         var key = this.credit[idx].currency;
         var value = parseFloat(this.credit[idx].balance);
+        emit(key, value);
     }
-    emit(key, value);
 };
 
 var reduceFuntion2 = function (key, objVals) {

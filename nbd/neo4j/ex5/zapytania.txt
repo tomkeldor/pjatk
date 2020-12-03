@@ -1,0 +1,20 @@
+1) MATCH (n:Movie) RETURN n AS Movies
+2) MATCH (n:Person)-[r:ACTED_IN]->(m) WHERE n.name = "Hugo Weaving" RETURN m AS MoviesStarringHugoWeaving
+3) MATCH (n:Person)-[r:DIRECTED]->(m)<-[s:ACTED_IN]-(l:Person) WHERE l.name = "Hugo Weaving" RETURN n AS DirectorsOfFilmsStarringHugoWeaving
+4) MATCH (n:Person)-[r:ACTED_IN]->(m)<-[s:ACTED_IN]-(l:Person) WHERE l.name = "Hugo Weaving" RETURN n AS HugoWeavingsCoActors
+5) MATCH (n:Person)-[:ACTED_IN]->(m) WHERE m.title = "The Matrix" WITH n as ActorsFromMatrix MATCH (ActorsFromMatrix)-[:ACTED_IN]->(p) RETURN p AS MoviesOfMatrixActors
+6) MATCH (n:Person)-[r:ACTED_IN]->(m) RETURN n.name AS Actor, count(r) AS MoviesNumber
+7) MATCH (n:Person)-[r:DIRECTED]->(m)<-[s:WROTE]-(l:Person) WHERE n = l RETURN n.name AS DirectorAndWriterOfFilm, m.title AS MovieTitle
+8) MATCH (n:Person)-[r:ACTED_IN]->(m)<-[s:ACTED_IN]-(l:Person) WHERE n.name = "Keanu Reeves" AND l.name = "Hugo Weaving" RETURN m.title AS MovieStarringKeanuReevesAndHugoWeaving
+9)
+CREATE (CapitanAmericaTheFirstAvenger:Movie {title:'Capitan America: The First Avenger', tagline:'Its me. Its Steve.', released:2011})
+CREATE (FirstActor:Person {name:'Chris Evans', born:1981})
+CREATE (SecondActor:Person {name:'Hayley Atwell', born:1982})
+CREATE (ThirdActor:Person {name:'Sebastian Stan', born:1982})
+CREATE (FourthActor:Person {name:'Tommy Lee Jones', born:1946})
+CREATE (MainDirector:Person {name:'Joe Johnston', born:1950})
+CREATE (FirstWriter:Person {name:'Christopher Markus', born:1965})
+CREATE (SecondWriter:Person {name:'Stephen McFeely', born:1952})
+CREATE (FirstActor)-[:ACTED_IN {roles:['Capitan America / Steve Rogers']}]->(CapitanAmericaTheFirstAvenger), (SecondActor)-[:ACTED_IN {roles:['Peggy Carter']}]->(CapitanAmericaTheFirstAvenger), (ThirdActor)-[:ACTED_IN {roles:['James Buchanan Barnes']}]->(CapitanAmericaTheFirstAvenger), (FourthActor)-[:ACTED_IN {roles:['Colonel Chester Phillips']}]->(CapitanAmericaTheFirstAvenger), (hugoWeaving:Person {name: 'Hugo Weaving'})-[:ACTED_IN {roles:['Johann Schmidt / Red Skull']}]->(CapitanAmerica), (MainDirector)-[:DIRECTED]->(CapitanAmericaTheFirstAvenger), (FirstWriter)-[:WROTE]->(CapitanAmericaTheFirstAvenger), (SecondWriter)-[:WROTE]->(CapitanAmericaTheFirstAvenger)
+
+MATCH (n:Person)-[]->(m) WHERE m.title = "Capitan America: The First Avenger" RETURN n,m
