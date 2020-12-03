@@ -6,19 +6,23 @@ class ProductRepository(private val productDao: ProductDao) {
 
     val allProducts: LiveData<List<Product>> = productDao.getProducts()
 
-    suspend fun insert(product: Product){
+    fun get(productId: Long) : Product {
+        return productDao.get(productId)
+    }
+
+    suspend fun insert(product: Product) {
         productDao.insert(product)
     }
-    
-    suspend fun update(product: Product){
+
+    suspend fun update(product: Product) {
         productDao.update(product)
     }
 
-    suspend fun delete(product: Product){
+    suspend fun delete(product: Product) {
         productDao.delete(product)
     }
 
-    suspend fun clear(){
+    suspend fun clear() {
         productDao.clear()
     }
 }

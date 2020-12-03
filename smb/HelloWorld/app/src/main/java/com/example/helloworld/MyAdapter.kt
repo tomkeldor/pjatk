@@ -54,6 +54,8 @@ class MyAdapter(private val productViewModel: ProductViewModel, private val ctx:
 
     override fun getItemCount(): Int = products.size
 
+    fun getItemPosition(product : Product) : Int = products.indexOf(product)
+
     inner class ViewHolder(val binding: ListElementBinding) : RecyclerView.ViewHolder(binding.root)
 
     fun setProducts(products: List<Product>) {

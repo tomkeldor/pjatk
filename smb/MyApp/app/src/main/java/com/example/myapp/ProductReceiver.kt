@@ -20,18 +20,20 @@ class ProductReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
         Log.i(this::class.java.name, "Triggered!")
+
+        val data : String = intent.getStringExtra("product")!!
+        val product = Json.decodeFromString<Product>(data)
         val listIntent = Intent()
         listIntent.component = ComponentName(
                 "com.example.helloworld",
-                "com.example.helloworld.MainActivity")//todo:scrollToPosition - do edycji produktu
+                "com.example.helloworld.ListActivity")
+        listIntent.putExtra("productId", product.id)
         val pendingIntent = PendingIntent.getActivity(
-            context,
-            intent.getIntExtra("id", 0),
-            listIntent,
-            PendingIntent.FLAG_UPDATE_CURRENT
+                context,
+                intent.getIntExtra("id", 0),
+                listIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT
         )
-        val data : String = intent.getStringExtra("product")!!
-        val product : Product = Json.decodeFromString<Product>(data)
         var channel = intent.getStringExtra("channel")
 
         if(channel == null)

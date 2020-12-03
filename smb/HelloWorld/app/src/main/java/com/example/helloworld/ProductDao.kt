@@ -10,6 +10,9 @@ interface ProductDao {
     @Query("SELECT * FROM product_table")
     fun getProducts(): LiveData<List<Product>>
 
+    @Query("SELECT * FROM product_table WHERE id = :productId")
+    fun get(productId: Long) : Product
+
     @Query("SELECT * FROM product_table")
     fun findAll(): Cursor
 

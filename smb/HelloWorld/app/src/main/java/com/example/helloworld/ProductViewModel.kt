@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
+import java.security.Policy
 
 class ProductViewModel(app: Application) : AndroidViewModel(app) {
 
@@ -18,21 +19,28 @@ class ProductViewModel(app: Application) : AndroidViewModel(app) {
         allProducts = repo.allProducts
     }
 
+    fun get(productId: Long): Product {
+        return repo.get(productId)
+    }
+
     fun insert(product: Product) {
         CoroutineScope(IO).launch {
             repo.insert(product)
         }
     }
+
     fun update(product: Product) {
         CoroutineScope(IO).launch {
             repo.update(product)
         }
     }
+
     fun delete(product: Product) {
         CoroutineScope(IO).launch {
             repo.delete(product)
         }
     }
+
     fun clear() {
         CoroutineScope(IO).launch {
             repo.clear()

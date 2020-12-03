@@ -25,14 +25,14 @@ class ListActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.rv1.layoutManager = LinearLayoutManager(baseContext)
         binding.rv1.addItemDecoration(
-            DividerItemDecoration(
-                baseContext,
-                DividerItemDecoration.VERTICAL
-            )
+                DividerItemDecoration(
+                        baseContext,
+                        DividerItemDecoration.VERTICAL
+                )
         )
         val productViewModel = ViewModelProvider(
-            this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(application)
+                this,
+                ViewModelProvider.AndroidViewModelFactory.getInstance(application)
         ).get(ProductViewModel::class.java)
         productViewModel.allProducts.observe(this, Observer { products ->
             products?.let {
@@ -50,10 +50,10 @@ class ListActivity : AppCompatActivity() {
         binding.rv1.adapter = MyAdapter(productViewModel, baseContext)
         val broadcast = Intent()
         broadcast.component = ComponentName(
-            "com.example.myapp",
-            "com.example.myapp.ProductReceiver"
+                "com.example.myapp",
+                "com.example.myapp.ProductReceiver"
         )
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             broadcast.putExtra("channel", getString(R.string.channel_id))
         }
         broadcast.putExtra("id", id++)
@@ -69,10 +69,10 @@ class ListActivity : AppCompatActivity() {
                 intValue = Integer.parseInt(et3)
             }
             val product = Product(
-                binding.et1.text.toString(),
-                dbValue,
-                intValue,
-                false
+                    binding.et1.text.toString(),
+                    dbValue,
+                    intValue,
+                    false
             )
             (binding.rv1.adapter as MyAdapter).addProduct(product)
             val string = Json.encodeToString(product)
@@ -83,6 +83,12 @@ class ListActivity : AppCompatActivity() {
         }
         binding.bt2.setOnClickListener {
             (binding.rv1.adapter as MyAdapter).clearProducts()
+        }
+        val extras = intent.extras
+        val productId = extras?.getLong("productId")
+        if (productId != null) {
+            val position = (binding.rv1.adapter as MyAdapter).getItemPosition(productViewModel.get(productId))
+            binding.rv1.scrollToPosition(position)
         }
     }
 }
