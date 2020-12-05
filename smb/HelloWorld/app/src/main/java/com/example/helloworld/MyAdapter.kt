@@ -63,11 +63,6 @@ class MyAdapter(private val productViewModel: ProductViewModel, private val ctx:
         notifyDataSetChanged()
     }
 
-    fun addProduct(product: Product) {
-        productViewModel.insert(product)
-        notifyDataSetChanged()
-    }
-
     fun clearProducts() {
         productViewModel.clear()
         notifyDataSetChanged()

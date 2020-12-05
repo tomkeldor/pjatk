@@ -10,8 +10,8 @@ class ProductRepository(private val productDao: ProductDao) {
         return productDao.get(productId)
     }
 
-    suspend fun insert(product: Product) {
-        productDao.insert(product)
+    suspend fun insert(product: Product) : Long {
+        return productDao.insert(product)
     }
 
     suspend fun update(product: Product) {

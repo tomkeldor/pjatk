@@ -18,12 +18,14 @@ import kotlinx.serialization.json.*
 class ListActivity : AppCompatActivity() {
 
     private var id = 0
+    private lateinit var binding : ActivityListBinding
+    private lateinit var myLayoutManager: LinearLayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityListBinding.inflate(layoutInflater)
+        binding = ActivityListBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.rv1.layoutManager = LinearLayoutManager(baseContext)
+        myLayoutManager =  LinearLayoutManager(baseContext)
         binding.rv1.addItemDecoration(
                 DividerItemDecoration(
                         baseContext,
@@ -74,7 +76,7 @@ class ListActivity : AppCompatActivity() {
                     intValue,
                     false
             )
-            (binding.rv1.adapter as MyAdapter).addProduct(product)
+            product.id = productViewModel.insert(product)
             val string = Json.encodeToString(product)
             Log.i("data", string)
             broadcast.putExtra("product", string)
@@ -84,11 +86,23 @@ class ListActivity : AppCompatActivity() {
         binding.bt2.setOnClickListener {
             (binding.rv1.adapter as MyAdapter).clearProducts()
         }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val productViewModel = ViewModelProvider(
+                this,
+                ViewModelProvider.AndroidViewModelFactory.getInstance(application)
+        ).get(ProductViewModel::class.java)
+
         val extras = intent.extras
         val productId = extras?.getLong("productId")
         if (productId != null) {
             val position = (binding.rv1.adapter as MyAdapter).getItemPosition(productViewModel.get(productId))
-            binding.rv1.scrollToPosition(position)
+            myLayoutManager.scrollToPositionWithOffset(position, 0)
         }
+        binding.rv1.layoutManager = myLayoutManager
     }
 }

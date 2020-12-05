@@ -23,10 +23,12 @@ class ProductViewModel(app: Application) : AndroidViewModel(app) {
         return repo.get(productId)
     }
 
-    fun insert(product: Product) {
+    fun insert(product: Product) : Long {
+        var id : Long = 0
         CoroutineScope(IO).launch {
-            repo.insert(product)
+            id = repo.insert(product)
         }
+        return id
     }
 
     fun update(product: Product) {
