@@ -9,27 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/hello">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
+            android:name=".MainActivity"
+            android:label="@string/hello" />
+        <activity
             android:name=".OptionsActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/ustawienia" />
+            android:label="@string/ustawienia"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ListActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/app_name"/>
-
-        <provider
-            android:authorities="com.example.helloworld.provider"
-            android:name="com.example.helloworld.MyProvider"
-            android:exported="true"/>
+            android:label="@string/mojaLista"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".SharedListActivity"
+            android:label="@string/dzielonaLista"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

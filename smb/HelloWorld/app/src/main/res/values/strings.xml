@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Lista zakupów</string>
+    <string name="mojaLista">Moja lista zakupów</string>
+    <string name="dzielonaLista">Dzielona lista zakupów</string>
     <string name="hello">Witaj!</string>
-    <string name="lista_produktow">Otwórz listę</string>
+    <string name="moja_lista_produktow">Otwórz swoją listę</string>
+    <string name="dzielona_lista_produktow">Otwórz współdzieloną listę</string>
     <string name="edytuj">Zapisz</string>
     <string name="usun">Usuń</string>
     <string name="kupiony">Kupiony?</string>
@@ -18,4 +21,7 @@
     <string name="styl_tekstu">Styl tekstu</string>
     <string name="pogrubienie">Wytłuszczenie</string>
     <string name="kursywa">Kursywa</string>
+    <string name="wyloguj">Wyloguj</string>
+    <string name="bold">bold</string>
+    <string name="italics">italics</string>
 </resources>
