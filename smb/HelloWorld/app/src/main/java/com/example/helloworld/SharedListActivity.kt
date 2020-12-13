@@ -1,12 +1,12 @@
 package com.example.helloworld
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.helloworld.databinding.ActivityListBinding
 
-class ListActivity : AppCompatActivity() {
+class SharedListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityListBinding.inflate(layoutInflater)
@@ -18,9 +18,9 @@ class ListActivity : AppCompatActivity() {
                 DividerItemDecoration.VERTICAL
             )
         )
-        val productViewModel = MyViewModelFactory(this.application, "my").create(ProductViewModel::class.java)
+        val sharedProductViewModel = MyViewModelFactory(this.application, "shared").create(ProductViewModel::class.java)
         //productViewModel.insert(Product("Mleko", 3.99, 2, true))
-        binding.rv1.adapter = MyAdapter(productViewModel, baseContext)
+        binding.rv1.adapter = MyAdapter(sharedProductViewModel, baseContext)
         (binding.rv1.adapter as MyAdapter).setProducts()
         binding.bt1.setOnClickListener {
             val et2 = binding.et2.text.toString()

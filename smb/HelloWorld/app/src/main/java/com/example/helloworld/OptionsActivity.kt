@@ -15,18 +15,18 @@ class OptionsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings_activity)
-        sp = PreferenceManager.getDefaultSharedPreferences(baseContext)
+        sp = PreferenceManager.getDefaultSharedPreferences(applicationContext)
         tB1.setOnCheckedChangeListener { _, _ ->
             editor = sp.edit()
-            editor.putBoolean("bold", tB1.isChecked)
+            editor.putBoolean(applicationContext.getString(R.string.bold), tB1.isChecked)
             editor.apply()
-            Log.i("bold", tB1.isChecked.toString())
+            Log.i(applicationContext.getString(R.string.bold), tB1.isChecked.toString())
         }
         tB2.setOnCheckedChangeListener { _, _ ->
             editor = sp.edit()
-            editor.putBoolean("italics", tB2.isChecked)
+            editor.putBoolean(applicationContext.getString(R.string.italics), tB2.isChecked)
             editor.apply()
-            Log.i("italics", tB2.isChecked.toString())
+            Log.i(applicationContext.getString(R.string.italics), tB2.isChecked.toString())
         }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -34,18 +34,16 @@ class OptionsActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        tB1.isChecked = sp.getBoolean("bold", false)
-        tB2.isChecked = sp.getBoolean("italics", false)
-        Log.i("ustawienia","wczytane")
+        tB1.isChecked = sp.getBoolean(applicationContext.getString(R.string.bold), false)
+        tB2.isChecked = sp.getBoolean(applicationContext.getString(R.string.italics), false)
     }
 
     override fun onStop() {
         super.onStop()
         editor = sp.edit()
-        editor.putBoolean("bold", tB1.isChecked)
-        editor.putBoolean("italics", tB2.isChecked)
+        editor.putBoolean(applicationContext.getString(R.string.bold), tB1.isChecked)
+        editor.putBoolean(applicationContext.getString(R.string.italics), tB2.isChecked)
         editor.apply()
-        Log.i("ustawienia","zapisane")
     }
 
 

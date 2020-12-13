@@ -1,23 +1,30 @@
 package com.example.helloworld
 
 import android.content.ContentValues
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import com.google.firebase.database.Exclude
 
-@Entity(tableName = "product_table")
-data class Product(var name: String, var price: Double, var amount: Int, var isBought: Boolean) {
-    @PrimaryKey(autoGenerate = true)
-    var id: Long = 0
-
+data class Product(var name: String, var price: Double, var amount: Long, var bought: Boolean) {
+    var id: String = ""
     companion object {
         fun fromContentValues(values: ContentValues?): Product {
             values?.let{
                 return Product(
                         values.getAsString("name"),
                         values.getAsDouble("price"),
-                        values.getAsInteger("amount"),
-                        values.getAsBoolean("isBought"))
+                        values.getAsLong("amount"),
+                        values.getAsBoolean("bought"))
             } ?: throw IllegalArgumentException()
         }
+    }
+
+    @Exclude
+    fun toMap(): Map<String, Any?> {
+        return mapOf(
+            "id" to id,
+            "name" to name,
+            "price" to price,
+            "amount" to amount,
+            "bought" to bought
+        )
     }
 }

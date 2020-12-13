@@ -1,24 +1,38 @@
 package com.example.helloworld
 
-import androidx.lifecycle.LiveData
+import android.util.Log
+import com.google.firebase.database.DatabaseReference
 
-class ProductRepository(private val productDao: ProductDao) {
+class ProductRepository(private val dbRef: DatabaseReference) {
 
-    val allProducts: LiveData<List<Product>> = productDao.getProducts()
+    suspend fun insert(product: Product) {
+        val key = dbRef.push().key
+        if (key == null) {
+            Log.w("error", "Couldn't get push key for posts")
+            return
+        }
 
-    fun insert(product: Product){
-        productDao.insert(product)
+        product.id = key
+        val productValues = product.toMap()
+
+        val childUpdates = hashMapOf<String, Any>(
+            key to productValues
+        )
+
+        dbRef.updateChildren(childUpdates)
     }
     
-    fun update(product: Product){
-        productDao.update(product)
+    suspend fun update(product: Product){
+        val productValues = product.toMap()
+
+        val childUpdates = hashMapOf<String, Any>(
+            product.id to productValues
+        )
+
+        dbRef.updateChildren(childUpdates)
     }
 
-    fun delete(product: Product){
-        productDao.delete(product)
-    }
-
-    fun clear(){
-        productDao.clear()
+    suspend fun delete(key: String){
+        dbRef.child(key).removeValue()
     }
 }

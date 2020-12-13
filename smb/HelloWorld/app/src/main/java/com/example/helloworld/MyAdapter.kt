@@ -11,21 +11,21 @@ import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.helloworld.databinding.ListElementBinding
 
-class MyAdapter(private val productViewModel: ProductViewModel, private val ctx: Context) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
+class MyAdapter(private val productViewModel: ProductViewModel, private val context: Context) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
-    private var products = emptyList<Product>()
+    private var products = mutableListOf<Product>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyAdapter.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = ListElementBinding.inflate(inflater)
 
-        val sp = PreferenceManager.getDefaultSharedPreferences(ctx)
-        val bold = if (sp.getBoolean("bold", false)) "bold" else ""
-        val italics = if (sp.getBoolean("italics", false)) "italics" else ""
+        val sp = PreferenceManager.getDefaultSharedPreferences(context)
+        val bold = if (sp.getBoolean(context.getString(R.string.bold), false)) context.getString(R.string.bold) else ""
+        val italics = if (sp.getBoolean(context.getString(R.string.italics), false)) context.getString(R.string.italics) else ""
 
         when (bold + italics) {
-            "bold" -> overrideFonts(view.rvLl1, Typeface.BOLD)
-            "italics" -> overrideFonts(view.rvLl1, Typeface.ITALIC)
+            context.getString(R.string.bold) -> overrideFonts(view.rvLl1, Typeface.BOLD)
+            context.getString(R.string.italics) -> overrideFonts(view.rvLl1, Typeface.ITALIC)
             "bolditalics" -> overrideFonts(view.rvLl1, Typeface.BOLD_ITALIC)
             else -> {
                 overrideFonts(view.rvLl1, Typeface.NORMAL)
@@ -39,16 +39,18 @@ class MyAdapter(private val productViewModel: ProductViewModel, private val ctx:
         holder.binding.rvTv1.setText(currentProduct.name)
         holder.binding.rvTv2.setText(currentProduct.price.toString())
         holder.binding.rvTv3.setText(currentProduct.amount.toString())
-        holder.binding.rvCb1.isChecked = currentProduct.isBought
+        holder.binding.rvCb1.isChecked = currentProduct.bought
         holder.binding.rvBt1.setOnClickListener {
             currentProduct.name = holder.binding.rvTv1.text.toString()
             currentProduct.price = holder.binding.rvTv2.text.toString().toDouble()
-            currentProduct.amount = Integer.parseInt(holder.binding.rvTv3.text.toString())
-            currentProduct.isBought = holder.binding.rvCb1.isChecked
+            currentProduct.amount = holder.binding.rvTv3.text.toString().toLong()
+            currentProduct.bought = holder.binding.rvCb1.isChecked
             productViewModel.update(currentProduct)
         }
         holder.binding.rvBt2.setOnClickListener {
             productViewModel.delete(currentProduct)
+            products.remove(currentProduct)
+            notifyDataSetChanged()
         }
     }
 
@@ -56,8 +58,8 @@ class MyAdapter(private val productViewModel: ProductViewModel, private val ctx:
 
     inner class ViewHolder(val binding: ListElementBinding) : RecyclerView.ViewHolder(binding.root)
 
-    fun setProducts(products: List<Product>) {
-        this.products = products
+    fun setProducts() {
+        this.products = productViewModel.allProducts
         notifyDataSetChanged()
     }
 
@@ -67,7 +69,7 @@ class MyAdapter(private val productViewModel: ProductViewModel, private val ctx:
     }
 
     fun clearProducts() {
-        productViewModel.clear()
+        //productViewModel.clear()
         notifyDataSetChanged()
     }
 
