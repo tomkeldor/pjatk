@@ -1,0 +1,2 @@
+﻿shortestRoad
+"[{""name"":Darjeeling},{""name"":Darjeeling-Rimbik,""winter"":true,""distance"":15,""summer"":true},{""name"":Rimbik},{""name"":Rimbik},{""name"":Rimbik-BhikeBhanja,""winter"":true,""distance"":18,""summer"":true},{""name"":BhikeBhanja},{""name"":BhikeBhanja},{""name"":BhikeBhanja-Sandakphu,""winter"":true,""distance"":4,""summer"":true},{""name"":Sandakphu,""altitude"":12400 ft}]"
