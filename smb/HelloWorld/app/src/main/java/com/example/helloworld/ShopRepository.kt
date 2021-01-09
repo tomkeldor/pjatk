@@ -1,7 +1,10 @@
 package com.example.helloworld
 
 import android.util.Log
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
 
 class ShopRepository(private val dbRef: DatabaseReference) {
 
@@ -16,17 +19,17 @@ class ShopRepository(private val dbRef: DatabaseReference) {
         val shopValues = shop.toMap()
 
         val childUpdates = hashMapOf<String, Any>(
-            key to shopValues
+                key to shopValues
         )
 
         dbRef.updateChildren(childUpdates)
     }
-    
+
     suspend fun update(shop: Shop){
         val shopValues = shop.toMap()
 
         val childUpdates = hashMapOf<String, Any>(
-            shop.id to shopValues
+                shop.id to shopValues
         )
 
         dbRef.updateChildren(childUpdates)

@@ -13,18 +13,19 @@ import kotlinx.coroutines.launch
 class ShopViewModel(app: Application) : AndroidViewModel(app) {
     private var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
     private val repo: ShopRepository
-    val allShops: MutableList<Shop>
     private val user: FirebaseUser?
+    var allShops: MutableList<Shop> = arrayListOf()
 
     init {
         user = mAuth.currentUser
-        allShops = arrayListOf()
         val database = FirebaseDatabase.getInstance()
         val reference : DatabaseReference = database.getReference("users/${user?.uid}/shops")
+
         var name: String
         var desc: String
         var coords: String
         var radius: Long
+
         reference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (shop in snapshot.children) {
@@ -34,6 +35,7 @@ class ShopViewModel(app: Application) : AndroidViewModel(app) {
                     radius = shop.child("radius").value as Long
                     val newShop = Shop(name, desc, coords, radius)
                     newShop.id = shop.child("id").value as String
+                    newShop.favorite = shop.child("favorite").value as Boolean
                     if (!allShops.contains(newShop)) {
                         allShops.add(newShop)
                     }
@@ -41,7 +43,7 @@ class ShopViewModel(app: Application) : AndroidViewModel(app) {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Log.w("error", "loadPost:onCancelled", error.toException())
+                Log.w("error", "loadShop:onCancelled", error.toException())
             }
         })
 

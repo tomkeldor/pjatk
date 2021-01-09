@@ -14,25 +14,25 @@ class ShopListActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.rv1.layoutManager = LinearLayoutManager(baseContext)
         binding.rv1.addItemDecoration(
-            DividerItemDecoration(
-                baseContext,
-                DividerItemDecoration.VERTICAL
-            )
+                DividerItemDecoration(
+                        baseContext,
+                        DividerItemDecoration.VERTICAL
+                )
         )
         val shopViewModel = ViewModelProvider(
-            this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(application)
+                this,
+                ViewModelProvider.AndroidViewModelFactory.getInstance(application)
         ).get(ShopViewModel::class.java)
         binding.rv1.adapter = ShopAdapter(shopViewModel)
         (binding.rv1.adapter as ShopAdapter).setShops()
         binding.bt1.setOnClickListener {
             (binding.rv1.adapter as ShopAdapter).addShop(
-                Shop(
-                    binding.et1.text.toString(),
-                    binding.et2.text.toString(),
-                    binding.et3.text.toString(),
-                    binding.et4.text.toString().toLong()
-                )
+                    Shop(
+                            binding.et1.text.toString(),
+                            binding.et2.text.toString(),
+                            binding.et3.text.toString(),
+                            binding.et4.text.toString().toLong()
+                    )
             )
         }
     }
