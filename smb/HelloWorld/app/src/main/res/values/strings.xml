@@ -2,6 +2,7 @@
     <string name="app_name">Lista zakupów</string>
     <string name="mojaLista">Moja lista zakupów</string>
     <string name="dzielonaLista">Dzielona lista zakupów</string>
+    <string name="listaSklepow">Lista sklepów</string>
     <string name="hello">Witaj!</string>
     <string name="moja_lista_produktow">Otwórz swoją listę</string>
     <string name="dzielona_lista_produktow">Otwórz współdzieloną listę</string>
@@ -24,4 +25,12 @@
     <string name="wyloguj">Wyloguj</string>
     <string name="bold">bold</string>
     <string name="italics">italics</string>
+    <string name="title_activity_maps">Mapa ulubionych sklepów</string>
+    <string name="lista_sklepow">Otwórz listę sklepów</string>
+    <string name="mapa_sklepow">Otwórz mapę ulubionych sklepów</string>
+    <string name="promien">Promień</string>
+    <string name="wspolrzedne">Wspołrzędne</string>
+    <string name="opis">Opis</string>
+    <string name="dodajUlubione">Dodaj do ulubionych</string>
+    <string name="nowy_sklep">Nowy sklep:</string>
 </resources>

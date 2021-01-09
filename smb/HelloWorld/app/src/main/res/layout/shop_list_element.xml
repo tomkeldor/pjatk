@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:importantForAutofill="no"
+    android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/td1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nazwa"
+            android:textAlignment="textStart" />
+
+        <TextView
+            android:id="@+id/rv_Tv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/td2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/opis"
+            android:textAlignment="textStart" />
+
+        <TextView
+            android:id="@+id/rv_Tv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/td3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/wspolrzedne"
+            android:textAlignment="textStart" />
+
+        <EditText
+            android:id="@+id/rv_Et1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/td4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/promien"
+            android:textAlignment="textStart" />
+
+        <EditText
+            android:id="@+id/rv_Et2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/td5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/akcje"
+            android:textAlignment="center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/rv_Bt1"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/edytuj" />
+
+                <Button
+                    android:id="@+id/rv_Bt2"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dodajUlubione" />
+        </LinearLayout>
+</LinearLayout>

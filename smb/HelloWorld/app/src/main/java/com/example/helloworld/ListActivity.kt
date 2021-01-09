@@ -19,7 +19,6 @@ class ListActivity : AppCompatActivity() {
             )
         )
         val productViewModel = MyViewModelFactory(this.application, "my").create(ProductViewModel::class.java)
-        //productViewModel.insert(Product("Mleko", 3.99, 2, true))
         binding.rv1.adapter = MyAdapter(productViewModel, baseContext)
         (binding.rv1.adapter as MyAdapter).setProducts()
         binding.bt1.setOnClickListener {

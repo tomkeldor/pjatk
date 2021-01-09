@@ -8,32 +8,60 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/bt_dzielonalista"
-        android:layout_width="200dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="111dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginBottom="204dp"
-        android:text="@string/dzielona_lista_produktow"
-        app:layout_constraintBottom_toTopOf="@+id/toolbar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_mojalista" />
-
-    <Button
         android:id="@+id/bt_mojalista"
         android:layout_width="200dp"
         android:layout_height="80dp"
         android:layout_marginStart="161dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="162dp"
-        android:layout_marginBottom="111dp"
+        android:layout_marginBottom="25dp"
         android:text="@string/moja_lista_produktow"
         app:layout_constraintBottom_toTopOf="@+id/bt_dzielonalista"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bt_dzielonalista"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="25dp"
+        android:text="@string/dzielona_lista_produktow"
+        app:layout_constraintBottom_toTopOf="@+id/bt_listasklepow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_mojalista" />
+
+    <Button
+        android:id="@+id/bt_listasklepow"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="25dp"
+        android:text="@string/lista_sklepow"
+        app:layout_constraintBottom_toTopOf="@+id/bt_mapasklepow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_dzielonalista" />
+
+    <Button
+        android:id="@+id/bt_mapasklepow"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="25dp"
+        android:text="@string/mapa_sklepow"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_listasklepow" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
