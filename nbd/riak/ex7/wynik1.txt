@@ -1,0 +1,66 @@
+riak-admin bucket-type create S23689 '{"props":{}}'S23689 created
+
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvmef+u8NA0OpYQZTInMeK8PrnrCbfFkA
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/S23689>; rel="up"
+Last-Modified: Sun, 27 Dec 2020 19:35:43 GMT
+ETag: "5nizCS8Ibn897fYuTjx4M3"
+Date: Sun, 27 Dec 2020 19:35:43 GMT
+Content-Type: application/json
+Content-Length: 159
+
+{movieName: Avengers, movieReleaseYear: 2012, movieDirector: {name: Joss, surname: Whedon}, movieLanguage: English, moviePrice: 29.99, movieAvailability: True}
+
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvmdfyvWBgaHUMIMpkTGPlSGuL+wmXxYA
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/S23689>; rel="up"
+Last-Modified: Sun, 27 Dec 2020 19:37:23 GMT
+ETag: "hVIUQl8ndY5FNkZCunU3I"
+Date: Sun, 27 Dec 2020 19:37:23 GMT
+Content-Type: application/json
+Content-Length: 160
+
+{movieName: Thor, movieReleaseYear: 2011, movieDirector: {name: Kenneth , surname: Branagh}, movieLanguage: English, moviePrice: 39.99, movieAvailability: True}
+
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvmdfymrHwFBqmMGUyJjHyrC/L+wmXxYA
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/S23689>; rel="up"
+Last-Modified: Sun, 27 Dec 2020 19:39:12 GMT
+ETag: "7Rb0KI9EtLFdRVCxIq95nY"
+Date: Sun, 27 Dec 2020 19:39:12 GMT
+Content-Type: application/json
+Content-Length: 172
+
+{movieName: GuardiansOfTheGalaxy, movieReleaseYear: 2014, movieDirector: {name: James , surname: Gunn}, movieLanguage: English, moviePrice: 19.99, movieAvailability: False}
+
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvmefM8uJgaHUMIMpkTGPleFvX9hNviwA
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/S23689>; rel="up"
+Last-Modified: Sun, 27 Dec 2020 19:41:54 GMT
+ETag: "1ji1CkuWt95mthThXqiT83"
+Date: Sun, 27 Dec 2020 19:41:54 GMT
+Content-Type: application/json
+Content-Length: 170
+
+{movieName: DoctorStrange, movieReleaseYear: 2016, movieDirector: {name: Scott , surname: Derrickson}, movieLanguage: English, moviePrice: 21.39, movieAvailability: True}
+
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvmdfeFeagaHUMIMpkSmPlYFrQthNviwA
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/S23689>; rel="up"
+Last-Modified: Sun, 27 Dec 2020 19:43:26 GMT
+ETag: "B3uNpgjbAvZ11m8FZDpkf"
+Date: Sun, 27 Dec 2020 19:43:26 GMT
+Content-Type: application/json
+Content-Length: 165
+
+{movieName: BlackPanther, movieReleaseYear: 2018, movieDirector: {name: Ryan , surname: Coogler}, movieLanguage: English, moviePrice: 9.99, movieAvailability: False}

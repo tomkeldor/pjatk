@@ -1,0 +1,13 @@
+HTTP/1.1 201 Created
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvmefJhHLwFBqmMGUyJjHytAyMewmXxYA
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Location: /buckets/s23689/keys/YhXb27J3FFC8paU9sHjPcu3r5Bs
+Link: </buckets/s23689>; rel="up"
+Last-Modified: Sun, 27 Dec 2020 20:02:28 GMT
+ETag: "3niTHVjrGLvaj99VcU03sW"
+Date: Sun, 27 Dec 2020 20:02:28 GMT
+Content-Type: application/json
+Content-Length: 20
+
+{movieName: TheRoom}

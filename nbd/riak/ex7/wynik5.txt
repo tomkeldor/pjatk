@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvmefM8uJgaHUMIMpkTmPleHzhLCbfFkA
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s23689>; rel="up"
+Last-Modified: Sun, 27 Dec 2020 19:53:24 GMT
+ETag: "2l9sAGJTGopqEI2QMBWnlf"
+Date: Sun, 27 Dec 2020 19:53:24 GMT
+Content-Type: application/json
+Content-Length: 170
+
+{movieName: DoctorStrange, movieReleaseYear: 1939, movieDirector: {name: Scott , surname: Derrickson}, movieLanguage: English, moviePrice: 21.39, movieAvailability: True}

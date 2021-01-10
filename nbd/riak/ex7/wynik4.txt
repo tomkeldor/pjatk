@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvmdfymrHwFBqmMGUyJzHynBhQthNviwA
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s23689>; rel="up"
+Last-Modified: Sun, 27 Dec 2020 19:49:54 GMT
+ETag: "7ZOckvRX1jqVWblBW43Kbd"
+Date: Sun, 27 Dec 2020 19:49:54 GMT
+Content-Type: application/json
+Content-Length: 148
+
+{movieName: GuardiansOfTheGalaxy, movieReleaseYear: 2014, movieDirector: {name: James , surname: Gunn}, moviePrice: 19.99, movieAvailability: False}

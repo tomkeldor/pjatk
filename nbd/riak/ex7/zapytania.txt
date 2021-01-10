@@ -1,0 +1,39 @@
+1.
+riak-admin bucket-type create S23689 '{"props":{}}'
+
+curl -i -XPUT -H "Content-Type: application/json" -d "{"movieName": "Avengers", "movieReleaseYear": 2012, "movieDirector": {"name": "Joss", "surname": "Whedon"}, "movieLanguage": "English", "moviePrice": 29.99, "movieAvailability": "True"}" http://127.0.0.1:8098/buckets/s23689/keys/avengers2012?returnbody=true
+
+curl -i -XPUT -H "Content-Type: application/json" -d "{"movieName": "Thor", "movieReleaseYear": 2011, "movieDirector": {"name": "Kenneth" , "surname": "Branagh"}, "movieLanguage": "English", "moviePrice": 39.99, "movieAvailability": "True"}" http://127.0.0.1:8098/buckets/s23689/keys/thor2011?returnbody=true
+
+curl -i -XPUT -H "Content-Type: application/json" -d "{"movieName": "GuardiansOfTheGalaxy", "movieReleaseYear": 2014, "movieDirector": {"name": "James" , "surname": "Gunn"}, "movieLanguage": "English", "moviePrice": 19.99, "movieAvailability": "False"}" http://127.0.0.1:8098/buckets/s23689/keys/guardiansofthegalaxy2014?returnbody=true
+
+curl -i -XPUT -H "Content-Type: application/json" -d "{"movieName": "DoctorStrange", "movieReleaseYear": 2016, "movieDirector": {"name": "Scott" , "surname": "Derrickson"}, "movieLanguage": "English", "moviePrice": 21.39, "movieAvailability": "True"}" http://127.0.0.1:8098/buckets/s23689/keys/doctorstrange2016?returnbody=true
+
+curl -i -XPUT -H "Content-Type: application/json" -d "{"movieName": "BlackPanther", "movieReleaseYear": 2018, "movieDirector": {"name": "Ryan" , "surname": "Coogler"}, "movieLanguage": "English", "moviePrice": 9.99, "movieAvailability": "False"}" http://127.0.0.1:8098/buckets/s23689/keys/blackpanther2018?returnbody=true
+
+2.
+curl -i http://127.0.0.1:8098/buckets/s23689/keys/blackpanther2018
+
+3.
+curl -i -XPUT -H "Content-Type: application/json" -d "{"movieName": "Avengers", "movieReleaseYear": 2012, "movieDirector": {"name": "Joss" , "surname": "Whedon"}, "movieLanguage": "English", "moviePrice": 29.99, "movieAvailability": "True", "movieRating": 7.2}" http://127.0.0.1:8098/buckets/s23689/keys/avengers2012?returnbody=true
+
+4.
+curl -i -XPUT -H "Content-Type: application/json" -d "{"movieName": "GuardiansOfTheGalaxy", "movieReleaseYear": 2014, "movieDirector": {"name": "James" , "surname": "Gunn"}, "moviePrice": 19.99, "movieAvailability": "False"}" http://127.0.0.1:8098/buckets/s23689/keys/guardiansofthegalaxy2014?returnbody=true
+
+5.
+curl -i -XPUT -H "Content-Type: application/json" -d "{"movieName": "DoctorStrange", "movieReleaseYear": 1939, "movieDirector": {"name": "Scott" , "surname": "Derrickson"}, "movieLanguage": "English", "moviePrice": 21.39, "movieAvailability": "True"}" http://127.0.0.1:8098/buckets/s23689/keys/doctorstrange2016?returnbody=true
+
+6.
+curl -i -XDELETE http://127.0.0.1:8098/buckets/s23689/keys/thor2011
+
+7.
+curl -i http://127.0.0.1:8098/buckets/s23689/keys/thor2011
+
+8.
+curl -i -XPOST -H "Content-Type: application/json" -d "{"movieName": "TheRoom"}" http://127.0.0.1:8098/buckets/s23689/keys/?returnbody=true
+
+9.
+curl -i http://127.0.0.1:8098/buckets/s23689/keys/YhXb27J3FFC8paU9sHjPcu3r5Bs
+
+10.
+curl -i -XDELETE http://127.0.0.1:8098/buckets/s23689/keys/YhXb27J3FFC8paU9sHjPcu3r5Bs

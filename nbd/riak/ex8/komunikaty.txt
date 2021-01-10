@@ -1,0 +1,8 @@
+Dodanie, pobranie, wypisanie:
+{"gameName": "GenshinImpact", "gameReleaseYear": 2020, "gameDeveloperName": "miHoYo", "gameGenre": "ActionRolePlaying", "gameUserScore": 6.10, "gameUpdates": "True"}
+
+Edycja, pobranie, wypisanie:
+{"gameName": "FinalFantasyXV", "gameReleaseYear": 2020, "gameDeveloperName": "miHoYo", "gameGenre": "ActionRolePlaying", "gameUserScore": 6.10, "gameUpdates": "True"}
+
+Usuniecie, proba pobrania:
+None

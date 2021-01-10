@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvmdfeFeagaHUMIMpkSmPlYFrQthNviwA
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s23689>; rel="up"
+Last-Modified: Sun, 27 Dec 2020 19:45:48 GMT
+ETag: "B3uNpgjbAvZ11m8FZDpkf"
+Date: Sun, 27 Dec 2020 19:45:48 GMT
+Content-Type: application/json
+Content-Length: 165
+
+{movieName: BlackPanther, movieReleaseYear: 2018, movieDirector: {name: Ryan , surname: Coogler}, movieLanguage: English, moviePrice: 9.99, movieAvailability: False}
