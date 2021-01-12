@@ -20,13 +20,12 @@ class ShopAdapter(private val shopViewModel: ShopViewModel) : RecyclerView.Adapt
         val currentShop = shops[position]
         holder.binding.rvTv1.text = currentShop.name
         holder.binding.rvTv2.text = currentShop.desc
-        holder.binding.rvEt1.setText(currentShop.coords)
-        holder.binding.rvEt2.setText(currentShop.radius.toString())
+        holder.binding.rvTv3.setText(currentShop.coords)
+        holder.binding.rvEt1.setText(currentShop.radius.toString())
         holder.binding.rvBt1.setOnClickListener {
             currentShop.name = holder.binding.rvTv1.text.toString()
             currentShop.desc = holder.binding.rvTv2.text.toString()
-            currentShop.coords = holder.binding.rvEt1.text.toString()
-            currentShop.radius = holder.binding.rvEt2.text.toString().toLong()
+            currentShop.radius = holder.binding.rvEt1.text.toString().toLong()
             shopViewModel.update(currentShop)
         }
         holder.binding.rvBt2.setOnClickListener {

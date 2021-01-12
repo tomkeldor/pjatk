@@ -57,25 +57,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/wspolrzedne"
-            android:textAlignment="textStart" />
-
-        <EditText
-            android:id="@+id/et3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text" />
-
-        <TextView
-            android:id="@+id/td4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/promien"
             android:textAlignment="textStart" />
 
         <EditText
-            android:id="@+id/et4"
+            android:id="@+id/et3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberSigned" />

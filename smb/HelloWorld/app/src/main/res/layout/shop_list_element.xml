@@ -39,7 +39,7 @@
             android:textAlignment="textStart" />
 
         <EditText
-            android:id="@+id/rv_Et1"
+            android:id="@+id/rv_Tv3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text" />
@@ -52,7 +52,7 @@
             android:textAlignment="textStart" />
 
         <EditText
-            android:id="@+id/rv_Et2"
+            android:id="@+id/rv_Et1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number" />
