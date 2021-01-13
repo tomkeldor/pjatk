@@ -24,7 +24,7 @@ class ShopViewModel(app: Application) : AndroidViewModel(app) {
         var name: String
         var desc: String
         var coords: String
-        var radius: Long
+        var radius: String
 
         reference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -32,7 +32,7 @@ class ShopViewModel(app: Application) : AndroidViewModel(app) {
                     name = shop.child("name").value as String
                     desc = shop.child("desc").value as String
                     coords = shop.child("coords").value as String
-                    radius = shop.child("radius").value as Long
+                    radius = shop.child("radius").value as String
                     val newShop = Shop(name, desc, coords, radius)
                     newShop.id = shop.child("id").value as String
                     newShop.favorite = shop.child("favorite").value as Boolean

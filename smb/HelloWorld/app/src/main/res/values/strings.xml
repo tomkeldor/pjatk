@@ -28,8 +28,8 @@
     <string name="title_activity_maps">Mapa ulubionych sklepów</string>
     <string name="lista_sklepow">Otwórz listę sklepów</string>
     <string name="mapa_sklepow">Otwórz mapę ulubionych sklepów</string>
-    <string name="promien">Promień</string>
-    <string name="wspolrzedne">Wspołrzędne</string>
+    <string name="promien">Promień (m)</string>
+    <string name="wspolrzedne">Współrzędne (Lat,Long)</string>
     <string name="opis">Opis</string>
     <string name="dodajUlubione">Dodaj do ulubionych</string>
     <string name="nowy_sklep">Nowy sklep:</string>
