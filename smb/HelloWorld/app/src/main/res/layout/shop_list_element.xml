@@ -4,81 +4,94 @@
     android:layout_height="wrap_content"
     android:importantForAutofill="no"
     android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/td1"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/nazwa"
-            android:textAlignment="textStart" />
-
-        <TextView
-            android:id="@+id/rv_Tv1"
+            android:gravity="center"
+            android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/td1"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nazwa"
+                    android:textAlignment="textStart" />
+                <TextView
+                    android:id="@+id/td2"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/opis"
+                    android:textAlignment="textStart" />
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/td2"
+            android:gravity="center"
+            android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/rv_Tv1"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/rv_Tv2"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/opis"
-            android:textAlignment="textStart" />
-
-        <TextView
-            android:id="@+id/rv_Tv2"
+            android:gravity="center"
+            android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/td3"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wspolrzedne"
+                    android:textAlignment="textStart" />
+                <TextView
+                    android:id="@+id/td4"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/promien"
+                    android:textAlignment="textStart" />
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/td3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/wspolrzedne"
-            android:textAlignment="textStart" />
-
-        <EditText
-            android:id="@+id/rv_Tv3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text" />
-
-        <TextView
-            android:id="@+id/td4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/promien"
-            android:textAlignment="textStart" />
-
-        <EditText
-            android:id="@+id/rv_Et1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number" />
-
+            android:gravity="center"
+            android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/rv_Tv3"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+                <EditText
+                    android:id="@+id/rv_Et1"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+        </LinearLayout>
         <TextView
             android:id="@+id/td5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/akcje"
             android:textAlignment="center" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal">
-
                 <Button
                     android:id="@+id/rv_Bt1"
-                    android:layout_width="200dp"
+                    android:layout_width="190dp"
                     android:layout_height="wrap_content"
                     android:text="@string/edytuj" />
 
                 <Button
                     android:id="@+id/rv_Bt2"
-                    android:layout_width="200dp"
+                    android:layout_width="190dp"
                     android:layout_height="wrap_content"
                     android:text="@string/dodajUlubione" />
         </LinearLayout>

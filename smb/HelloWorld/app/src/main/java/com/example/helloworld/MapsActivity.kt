@@ -1,14 +1,12 @@
 package com.example.helloworld
 
-import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
-import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -24,6 +22,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var shopViewModel: ShopViewModel
     private lateinit var location: LatLng
 
+    @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
@@ -36,7 +35,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        permissionCheck()
         LocationServices.getFusedLocationProviderClient(this).lastLocation
                 .addOnSuccessListener {
                     location = try {
@@ -59,6 +57,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      * This callback is triggered when the map is ready to be used.
      * This is where we can add markers or lines, add listeners or move the camera.
      */
+    @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         mMap.isMyLocationEnabled = true
@@ -83,30 +82,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     )
                 ).title(shop.name)
             )
-        }
-    }
-
-    private fun permissionCheck() {
-        val perms = arrayOf(
-                Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-        )
-        if (ActivityCompat.checkSelfPermission(
-                        this,
-                        Manifest.permission.ACCESS_FINE_LOCATION
-                ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                        this,
-                        Manifest.permission.ACCESS_COARSE_LOCATION
-                ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            requestPermissions(perms, 0)
-        }
-    }
-
-    fun turnOnGPS() {
-        val service = getSystemService(LOCATION_SERVICE) as LocationManager
-        if (!service.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
         }
     }
 }
