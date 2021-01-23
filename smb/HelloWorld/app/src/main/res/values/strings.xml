@@ -33,4 +33,12 @@
     <string name="opis">Opis</string>
     <string name="dodajUlubione">Dodaj do ulubionych</string>
     <string name="nowy_sklep">Nowy sklep:</string>
+    <string name="appwidget_text">Witaj!</string>
+    <string name="add_widget">Add widget</string>
+    <string name="action_show">com.example.helloworld.ACTION_SHOW</string>
+    <string name="action_prev">com.example.helloworld.ACTION_PREV</string>
+    <string name="action_next">com.example.helloworld.ACTION_NEXT</string>
+    <string name="imageContDesc">Genshin Impact</string>
+    <string name="web">WWW</string>
+    <string name="img">Obrazy</string>
 </resources>
