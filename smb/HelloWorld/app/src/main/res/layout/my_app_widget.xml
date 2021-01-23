@@ -2,8 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="?attr/appWidgetBackgroundColor"
+    android:orientation="vertical"
     android:padding="@dimen/widget_margin"
     android:theme="@style/ThemeOverlay.HelloWorld.AppWidgetContainer">
 
@@ -20,38 +20,95 @@
         android:textSize="24sp"
         android:textStyle="bold|italic" />
 
-    <Button
-        android:id="@+id/wButtonWeb"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/web" />
+        android:layout_marginHorizontal="8dp"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/wButtonImg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/img" />
+        <Button
+            android:id="@+id/wButtonWeb"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/ic_baseline_web_24"
+            android:text="@string/web" />
 
-    <Button
-        android:id="@+id/wButton3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+        <Button
+            android:id="@+id/wButtonImg"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_baseline_photo_library_24"
+            android:text="@string/img" />
 
-    <Button
-        android:id="@+id/wButtonShop"
+        <Button
+            android:id="@+id/wButtonShop"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/ic_baseline_shop_24"
+            android:text="@string/sklepy" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/listaSklepow" />
+        android:layout_marginHorizontal="8dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/wButtonBack"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:drawable/ic_media_previous" />
+
+        <Button
+            android:id="@+id/wButtonPlay"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/ic_media_play" />
+
+        <Button
+            android:id="@+id/wButtonPause"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:drawable/ic_media_pause" />
+
+        <Button
+            android:id="@+id/wButtonStop"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:drawable/picture_frame"
+            android:scaleX="0.5"
+            android:scaleY="0.7" />
+
+        <Button
+            android:id="@+id/wButtonSkip"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:drawable/ic_media_next" />
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="8dp">
 
         <ImageView
             android:id="@+id/wImageView"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="350dp"
             android:contentDescription="@string/imageContDesc"
             app:srcCompat="@android:color/transparent" />
 
@@ -60,7 +117,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@id/wImageView"
-            android:layout_marginVertical="100dp"
+            android:layout_marginVertical="125dp"
             android:background="@drawable/ic_baseline_arrow_back_ios_24" />
 
         <Button
@@ -68,7 +125,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@id/wImageView"
-            android:layout_marginVertical="100dp"
+            android:layout_marginVertical="125dp"
             android:background="@drawable/ic_baseline_arrow_forward_ios_24"
             android:translationX="22dp" />
     </RelativeLayout>
