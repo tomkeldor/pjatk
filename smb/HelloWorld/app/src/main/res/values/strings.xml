@@ -42,4 +42,11 @@
     <string name="web">WWW</string>
     <string name="img">Obrazy</string>
     <string name="sklepy">Sklepy</string>
+    <string name="action_back">com.example.helloworld.ACTION_BACK</string>
+    <string name="action_play">com.example.helloworld.ACTION_PLAY</string>
+    <string name="action_pause">com.example.helloworld.ACTION_PAUSE</string>
+    <string name="action_stop">com.example.helloworld.ACTION_STOP</string>
+    <string name="action_skip">com.example.helloworld.ACTION_SKIP</string>
+    <string name="broadcast_audio_player">com.example.helloworld.audioPlayer</string>
+    <string name="done">Done!</string>
 </resources>

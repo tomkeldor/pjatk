@@ -55,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
-        android:background="@color/colorPrimary"
+        android:background="#4C5052"
         android:orientation="horizontal">
 
         <Button
@@ -89,7 +89,7 @@
             android:layout_weight="1"
             android:background="@android:drawable/picture_frame"
             android:scaleX="0.5"
-            android:scaleY="0.7" />
+            android:scaleY="0.5" />
 
         <Button
             android:id="@+id/wButtonSkip"

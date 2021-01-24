@@ -24,6 +24,11 @@
                 <action android:name="@string/action_show" />
                 <action android:name="@string/action_prev" />
                 <action android:name="@string/action_next" />
+                <action android:name="@string/action_back" />
+                <action android:name="@string/action_play" />
+                <action android:name="@string/action_pause" />
+                <action android:name="@string/action_stop" />
+                <action android:name="@string/action_skip" />
             </intent-filter>
 
             <meta-data
@@ -34,6 +39,7 @@
             android:name=".GeoReceiver"
             android:enabled="true"
             android:exported="true" />
+        <service android:name=".MediaPlayerService" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
