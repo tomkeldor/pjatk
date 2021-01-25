@@ -47,6 +47,7 @@
     <string name="action_pause">com.example.helloworld.ACTION_PAUSE</string>
     <string name="action_stop">com.example.helloworld.ACTION_STOP</string>
     <string name="action_skip">com.example.helloworld.ACTION_SKIP</string>
+    <string name="action_shop">com.example.helloworld.ACTION_SHOP</string>
     <string name="broadcast_audio_player">com.example.helloworld.audioPlayer</string>
     <string name="done">Done!</string>
 </resources>

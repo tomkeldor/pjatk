@@ -7,6 +7,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.view.View
 import android.widget.RemoteViews
 import android.widget.Toast
 
@@ -31,7 +32,9 @@ class MyAppWidget : AppWidgetProvider() {
                 val appWidgetManager = AppWidgetManager.getInstance(context)
                 val remoteViews = RemoteViews(context!!.packageName, R.layout.my_app_widget)
                 val myWidget = ComponentName(context, MyAppWidget::class.java)
-
+                remoteViews.setViewVisibility(R.id.widgetListView, View.GONE)
+                remoteViews.setViewVisibility(R.id.wButtonPrev, View.VISIBLE)
+                remoteViews.setViewVisibility(R.id.wButtonNext, View.VISIBLE)
                 remoteViews.setImageViewResource(R.id.wImageView, R.drawable.img1)
                 appWidgetManager.updateAppWidget(myWidget, remoteViews)
             }
@@ -71,6 +74,18 @@ class MyAppWidget : AppWidgetProvider() {
                         updateAppWidget(context, appWidgetManager, appWidgetId, imageId!!, remoteViews)
                     }
                 }
+            }
+            context?.getString(R.string.action_shop) -> {
+                val appWidgetManager = AppWidgetManager.getInstance(context)
+                val remoteViews = RemoteViews(context!!.packageName, R.layout.my_app_widget)
+                val myWidget = ComponentName(context, MyAppWidget::class.java)
+                val listViewIntent = Intent(context, MyRemoteViewService::class.java)
+                remoteViews.setImageViewResource(R.id.wImageView, R.drawable.empty)
+                remoteViews.setViewVisibility(R.id.wButtonPrev, View.GONE)
+                remoteViews.setViewVisibility(R.id.wButtonNext, View.GONE)
+                remoteViews.setViewVisibility(R.id.widgetListView, View.VISIBLE)
+                remoteViews.setRemoteAdapter(R.id.widgetListView, listViewIntent)
+                appWidgetManager.updateAppWidget(myWidget, remoteViews)
             }
         }
         if (intent?.action.equals(context?.getString(R.string.action_back)) ||
@@ -188,8 +203,9 @@ internal fun updateAppWidget(context: Context, appWidgetManager: AppWidgetManage
     //endregion
 
     //region ShopList
-    val intent4 = Intent(context, ShopListActivity::class.java)
-    val pendingIntent4 = PendingIntent.getActivity(
+    val intent4 = Intent(context.getString(R.string.action_shop))
+    intent4.component = ComponentName(context, MyAppWidget::class.java)
+    val pendingIntent4 = PendingIntent.getBroadcast(
             context,
             requestCode,
             intent4,

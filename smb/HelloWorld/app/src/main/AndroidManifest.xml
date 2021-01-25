@@ -40,6 +40,7 @@
             android:enabled="true"
             android:exported="true" />
         <service android:name=".MediaPlayerService" />
+        <service android:name=".MyRemoteViewService" android:permission="android.permission.BIND_REMOTEVIEWS" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -55,7 +56,6 @@
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

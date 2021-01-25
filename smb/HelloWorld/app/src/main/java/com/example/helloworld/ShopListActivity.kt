@@ -32,7 +32,6 @@ class ShopListActivity : AppCompatActivity() {
             )
         )
         geoClient = LocationServices.getGeofencingClient(this)
-        //geoClient.removeGeofences()
         val shopViewModel = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(application)
